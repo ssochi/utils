@@ -25,9 +25,13 @@ unzip fcli*
 rm fcli-*
 chmod 777 fcli
 fi
+#写入 properties
 echo accesskey=$ALIYUN_ACCESS_KEY_ID > ./properties
 echo accesskeySecret=$ALIYUN_ACCESS_KEY_SECRET >> ./properties
 echo endpoint=$ALIYUN_FC_ENDPOINT >> ./properties
+echo fc_bucket=$FC_BUCKET >> ./properties
+echo ossRegion=$OSS_REGIOBN >> ./properties
+
 file_list=$(ls -a | grep -v  ossutil | grep -v fcil | grep -v fcbuilder)
 fl=${file_list:5}
 zip -r $functionName.zip $fl
